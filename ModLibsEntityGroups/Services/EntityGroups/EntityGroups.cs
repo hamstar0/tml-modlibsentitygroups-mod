@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ModLoader;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Errors;
-using ModLibsCore.Libraries.TModLoader;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
@@ -13,10 +12,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// </summary>
 	public partial class EntityGroups {
 		/// <summary></summary>
-		public static bool IsLoaded => ModContent.GetInstance<EntityGroups>()?.IsLoadedPostModLoad ?? false;
-
-
-		/// <summary></summary>
 		public static int ItemCount => ModContent.GetInstance<EntityGroups>()?.ItemGroups.Count ?? -1;
 
 		/// <summary></summary>
@@ -25,22 +20,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <summary></summary>
 		public static int ProjectileCount => ModContent.GetInstance<EntityGroups>()?.ItemGroups.Count ?? -1;
 
-
-
-		////////////////
-
-		/// <summary>
-		/// Enables entity groups. Must be called before all mod load and setup functions are called (e.g. `Mod.Load()`).
-		/// </summary>
-		public static void Enable() {
-			var mymod = ModLibsEntGroupsMod.Instance;
-			if( LoadLibraries.IsModLoaded() ) {
-				throw new ModLibsException( "Entity Groups must be enabled before mods finish loading." );
-			}
-
-			var entGrps = ModContent.GetInstance<EntityGroups>();
-			entGrps.IsReadyToLoad = true;
-		}
 
 
 		////////////////
@@ -56,7 +35,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <param name="matcher">Function to use to match items for this group.</param>
 		public static void AddCustomItemGroup( string groupName, string[] groupDependencies, ItemGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( !entGrps.IsReadyToLoad ) { throw new ModLibsException( "Entity groups not enabled." ); }
 			if( entGrps.CustomItemMatchers == null ) { throw new ModLibsException( "Mods loaded; cannot add new groups." ); }
 
 			var entry = new EntityGroupMatcherDefinition<Item>( groupName, groupDependencies, matcher );
@@ -74,7 +52,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <param name="matcher">Function to use to match NPCs for this group.</param>
 		public static void AddCustomNPCGroup( string groupName, string[] groupDependencies, NPCGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( !entGrps.IsReadyToLoad ) { throw new Exception( "Entity groups not enabled." ); }
 			if( entGrps.CustomNPCMatchers == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
 
 			var entry = new EntityGroupMatcherDefinition<NPC>( groupName, groupDependencies, matcher );
@@ -93,7 +70,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		public static void AddCustomProjectileGroup( string groupName, string[] groupDependencies,
 					ProjectileGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( !entGrps.IsReadyToLoad ) { throw new Exception( "Entity groups not enabled." ); }
 			if( entGrps.CustomProjMatchers == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
 
 			var entry = new EntityGroupMatcherDefinition<Projectile>( groupName, groupDependencies, matcher );

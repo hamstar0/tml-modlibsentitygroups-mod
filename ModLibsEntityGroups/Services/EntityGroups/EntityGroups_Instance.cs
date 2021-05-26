@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Terraria;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Loadable;
 using ModLibsCore.Libraries.Debug;
-using ModLibsCore.Libraries.DotNET.Threading;
-using ModLibsCore.Services.Hooks.LoadHooks;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
@@ -19,9 +16,6 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 
 
 		////////////////
-
-		private bool IsReadyToLoad = false;
-		private bool IsLoadedPostModLoad = false;
 
 		private IDictionary<string, IReadOnlySet<int>> ItemGroups = new Dictionary<string, IReadOnlySet<int>>();
 		private IDictionary<string, IReadOnlySet<int>> NPCGroups = new Dictionary<string, IReadOnlySet<int>>();
@@ -43,23 +37,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 
 		////////////////
 
-		internal EntityGroups() {
-			LoadHooks.AddPostModLoadHook( () => {
-				if( this.IsReadyToLoad ) {
-					this.InitializePools();
-					this.InitializeDefinitions();
-					this.IsLoadedPostModLoad = true;
-				}
-			} );
-
-			//LoadHooks.AddModUnloadHook( () => {
-			//	lock( EntityGroups.MyLock ) { }
-			//} );
-		}
+		internal EntityGroups() { }
 
 		void ILoadable.OnModsLoad() { }
 
-		void ILoadable.OnPostModsLoad() { }
+		void ILoadable.OnPostModsLoad() {
+			this.InitializePools();
+			this.InitializeDefinitions();
+		}
 
 		void ILoadable.OnModsUnload() { }
 
