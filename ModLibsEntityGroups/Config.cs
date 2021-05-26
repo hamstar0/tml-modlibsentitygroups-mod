@@ -5,7 +5,7 @@ using Terraria.ModLoader.Config;
 
 namespace ModLibsEntityGroups {
 	/// <summary>
-	/// Defines Mod Helpers config settings.
+	/// Defines config settings.
 	/// </summary>
 	[Label( "Mod Libs - Entity Groups - Settings" )]
 	public class ModLibsEntityGroupsConfig : ModConfig {
@@ -17,8 +17,6 @@ namespace ModLibsEntityGroups {
 
 
 		////////////////
-
-		//public static string ConfigFileName => "Mod Helpers Config.json";
 
 		/// @private
 		public override ConfigScope Mode => ConfigScope.ServerSide;
