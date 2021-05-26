@@ -15,25 +15,25 @@ namespace ModLibsEntityGroups.Libraries.Recipes {
 		/// <summary>
 		/// Recipe group of items of an "evil" biome boss's drops (Shadow Scale and Tissue Sample).
 		/// </summary>
-		public static RecipeGroup EvilBiomeBossDrops => RecipeGroupLibraries.Groups["ModHelpers:EvilBiomeBossDrops"];
+		public static RecipeGroup EvilBiomeBossDrops => RecipeGroupLibraries.Groups["ModLibs:EvilBiomeBossDrops"];
 		/// <summary>
 		/// Recipe group of light pet items of an "evil" biome (Shadow Orb and Crimson Heart).
 		/// </summary>
-		public static RecipeGroup EvilBiomeLightPet => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsEvilBiomeLightPet"];
+		public static RecipeGroup EvilBiomeLightPet => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsEvilBiomeLightPet"];
 		/// <summary></summary>
-		public static RecipeGroup VanillaButterfly => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsVanillaButterfly"];
+		public static RecipeGroup VanillaButterfly => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsVanillaButterfly"];
 		/// <summary></summary>
-		public static RecipeGroup VanillaGoldCritter => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsVanillaGoldCritter"];
+		public static RecipeGroup VanillaGoldCritter => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsVanillaGoldCritter"];
 		/// <summary></summary>
-		public static RecipeGroup PressurePlates => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsPressurePlates"];
+		public static RecipeGroup PressurePlates => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsPressurePlates"];
 		/// <summary></summary>
-		public static RecipeGroup WeightedPressurePlates => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsWeightedPressurePlates"];
+		public static RecipeGroup WeightedPressurePlates => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsWeightedPressurePlates"];
 		/// <summary></summary>
-		public static RecipeGroup ConveyorBelts => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsConveyorBelts"];
+		public static RecipeGroup ConveyorBelts => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsConveyorBelts"];
 		/// <summary></summary>
-		public static RecipeGroup NpcBanners => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsNpcBanners"];
+		public static RecipeGroup NpcBanners => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsNpcBanners"];
 		/// <summary></summary>
-		public static RecipeGroup RecordedMusicBoxes => RecipeGroupLibraries.Groups["ModHelpers:EvilBossDropsRecordedMusicBoxes"];
+		public static RecipeGroup RecordedMusicBoxes => RecipeGroupLibraries.Groups["ModLibs:EvilBossDropsRecordedMusicBoxes"];
 
 
 		////
@@ -62,7 +62,7 @@ namespace ModLibsEntityGroups.Libraries.Recipes {
 			IDictionary<string, RecipeGroup> groups = commonItemGrps.ToDictionary(
 				kv => {
 					string internalGrpName = kv.Key;
-					return "ModHelpers:" + internalGrpName;
+					return "ModLibs:" + internalGrpName;
 				},
 				kv => {
 					string grpName = kv.Value.GroupName;

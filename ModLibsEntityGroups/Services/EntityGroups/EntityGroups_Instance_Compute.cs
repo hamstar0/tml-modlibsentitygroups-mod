@@ -48,7 +48,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 				}
 			}
 
-			//LogHelpers.Log( "ent:" + typeof( T ).Name + ", OK " + groups.Count );
+			//LogLibraries.Log( "ent:" + typeof( T ).Name + ", OK " + groups.Count );
 			return true;
 		}
 

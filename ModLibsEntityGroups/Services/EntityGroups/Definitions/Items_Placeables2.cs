@@ -91,7 +91,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 					if( item.modItem != null ) {
 						if( !item.modItem.Name.EndsWith(" Ore") ) { return false; }
-					} else if( !ItemAttributeHelpers.GetQualifiedName(item.type).EndsWith(" Ore") ) {
+					} else if( !ItemAttributeLibraries.GetQualifiedName(item.type).EndsWith(" Ore") ) {
 						return false;
 					}
 					return true;*/

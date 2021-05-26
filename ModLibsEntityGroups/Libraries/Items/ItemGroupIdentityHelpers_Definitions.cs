@@ -58,8 +58,8 @@ namespace ModLibsEntityGroups.Libraries.Items {
 			groups["PressurePlates"] = groups["AllPressurePlates"];
 			groups["WeightedPressurePlates"] = groups["WeightPressurePlates"];
 			groups["ConveyorBelts"] = groups["ConveyorBeltPair"];
-			groups["NpcBanners"] = ItemGroupIdentityHelpers.MobBanners;
-			groups["VanillaRecordedMusicBoxes"] = ItemGroupIdentityHelpers.VanillaRecordedMusicBoxes;*/
+			groups["NpcBanners"] = ItemGroupIdentityLibraries.MobBanners;
+			groups["VanillaRecordedMusicBoxes"] = ItemGroupIdentityLibraries.VanillaRecordedMusicBoxes;*/
 
 			return groups;
 		}
