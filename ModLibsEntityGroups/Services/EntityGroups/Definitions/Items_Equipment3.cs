@@ -97,7 +97,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
 					bool isEquip = equipGrp.Contains( item.type );
-					string name = ItemAttributeLibraries.GetQualifiedName( item );
+					string name = ItemNameAttributeLibraries.GetQualifiedName( item );
 
 					if( !isEquip || !name.Contains( "Tiki" ) ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;

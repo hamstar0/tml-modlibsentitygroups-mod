@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ModLibsCore.Libraries.Debug;
+using ModLibsCore.Libraries.Items.Attributes;
 using ModLibsGeneral.Libraries.Recipes;
 using ModLibsGeneral.Libraries.Items.Attributes;
 
@@ -137,7 +138,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					if( !item.magic ) { return false; }
 
-					string name = ItemAttributeLibraries.GetQualifiedName( item );
+					string name = ItemNameAttributeLibraries.GetQualifiedName( item );
 					return name.Contains( "Staff" ) ||
 						name.Contains( "Scepter" ) ||
 						name.Contains( "Wand" );
@@ -149,7 +150,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					if( !item.magic ) { return false; }
 
-					string name = ItemAttributeLibraries.GetQualifiedName( item );
+					string name = ItemNameAttributeLibraries.GetQualifiedName( item );
 					return name.Contains( "Rod" );
 				} )
 			) );
@@ -164,7 +165,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						return true;
 					}
 
-					string name = ItemAttributeLibraries.GetQualifiedName( item );
+					string name = ItemNameAttributeLibraries.GetQualifiedName( item );
 					return name.Contains( "Gun" ) ||
 						name.Contains( "Rifle" ) ||
 						name.Contains( "Ray" ) ||
@@ -190,7 +191,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					bool isCraftedWith = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ {ItemID.SpellTome, 1} } );
 					if( isCraftedWith ) { return true; }
 
-					string name = ItemAttributeLibraries.GetQualifiedName( item );
+					string name = ItemNameAttributeLibraries.GetQualifiedName( item );
 					return name.Contains( "Book" ) ||
 						name.Contains( "Tome" );
 				} )

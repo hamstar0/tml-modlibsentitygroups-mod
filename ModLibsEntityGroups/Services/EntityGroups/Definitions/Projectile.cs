@@ -1,8 +1,8 @@
-﻿using ModLibsCore.Libraries.Debug;
-using ModLibsCore.Libraries.Projectiles.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Terraria;
+using ModLibsCore.Libraries.Debug;
+using ModLibsGeneral.Libraries.Projectiles.Attributes;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {

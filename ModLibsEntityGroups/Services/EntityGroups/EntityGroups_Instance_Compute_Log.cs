@@ -29,11 +29,11 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 				(itemType) => {
 					switch( type.Name ) {
 					case "Item":
-						return ItemAttributeLibraries.GetQualifiedName( itemType );
+						return ItemNameAttributeLibraries.GetQualifiedName( itemType );
 					case "NPC":
-						return NPCAttributeLibraries.GetQualifiedName( itemType );
+						return NPCNameAttributeLibraries.GetQualifiedName( itemType );
 					case "Projectile":
-						return ProjectileAttributeLibraries.GetQualifiedName( itemType );
+						return ProjectileNameAttributeLibraries.GetQualifiedName( itemType );
 					default:
 						throw new NotImplementedException();
 					}
