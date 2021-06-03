@@ -4,7 +4,7 @@ using Terraria;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Loadable;
 using ModLibsCore.Libraries.Debug;
-
+using ModLibsCore.Services.Timers;
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// <summary>
@@ -42,8 +42,11 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		void ILoadable.OnModsLoad() { }
 
 		void ILoadable.OnPostModsLoad() {
-			this.InitializePools();
-			this.InitializeDefinitions();
+			Timers.SetTimer( 1, true, () => {
+				this.InitializePools();
+				this.InitializeDefinitions();
+				return false;
+			} );
 		}
 
 		void ILoadable.OnModsUnload() { }
