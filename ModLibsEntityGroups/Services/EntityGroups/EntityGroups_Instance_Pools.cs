@@ -40,7 +40,11 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			
 			for( int i = 1; i < ItemLoader.ItemCount; i++ ) {
 				list[i] = new Item();
-				list[i].SetDefaults( i, true );
+				try {
+					list[i].SetDefaults( i, true );
+				} catch( Exception e ) {
+					LogLibraries.Log( "GetItemPool fail for type " + i + " - " + e.ToString() );
+				}
 			}
 
 			this.ItemPool = new List<Item>( list );
@@ -55,7 +59,11 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 
 			for( int i = 1; i < NPCLoader.NPCCount; i++ ) {
 				list[i] = new NPC();
-				list[i].SetDefaults( i );
+				try {
+					list[i].SetDefaults( i );
+				} catch( Exception e ) {
+					LogLibraries.Log( "GetNPCPool fail for type " + i + " - " + e.ToString() );
+				}
 			}
 
 			this.NPCPool = new List<NPC>( list );
@@ -77,7 +85,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 				try {
 					list[i].SetDefaults( i );
 				} catch( Exception e ) {
-					LogLibraries.Log( "GetProjPool " + i + " - " + e.ToString() );
+					LogLibraries.Log( "GetProjPool fail for type " + i + " - " + e.ToString() );
 				}
 			} 
 
