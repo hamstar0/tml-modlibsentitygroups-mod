@@ -53,8 +53,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemMiscGroups1( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemMiscGroups1( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyItem,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -66,7 +66,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				if( i >= -10 && i <= -3 ) { i = -2; }
 
 				int tier = i;
-				defs.Add( new EntityGroupMatcherDefinition<Item>(
+				defs.Add( new EntityGroupBuilderDefinition<Item>(
 					grpName: "Any " + ItemRarityAttributeLibraries.RarityColorText[i] + " Tier",
 					grpDeps: null,
 					matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -75,7 +75,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				) );
 			}
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyDye,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -83,7 +83,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyFood,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

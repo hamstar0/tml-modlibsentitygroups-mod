@@ -18,8 +18,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemEquipmentGroups5( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemEquipmentGroups5( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyOreEquipment,
 				grpDeps: new string[] {
 					ItemGroupIDs.AnyCopperOrTinEquipment,
@@ -57,7 +57,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyNonOreCraftedEquipment,
 				grpDeps: new string[] {
 					ItemGroupIDs.AnyEquipment,

@@ -16,10 +16,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineProjectileGroups1( IList<EntityGroupMatcherDefinition<Projectile>> defs ) {
+		internal static void DefineProjectileGroups1( IList<EntityGroupBuilderDefinition<Projectile>> defs ) {
 			// General
 
-			defs.Add( new EntityGroupMatcherDefinition<Projectile>(
+			defs.Add( new EntityGroupBuilderDefinition<Projectile>(
 				grpName: ProjectileGroupIDs.AnyExplosive,
 				grpDeps: null,
 				matcher: new ProjectileGroupMatcher( ( proj, grp ) => {

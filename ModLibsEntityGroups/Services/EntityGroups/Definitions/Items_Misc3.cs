@@ -27,14 +27,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemMiscGroups3( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemMiscGroups3( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			IDictionary<int, (int, int)> GetMinIngreds( int itemType ) {
 				return new Dictionary<int, (int, int)> { { itemType, (1, 1000) } };
 			}
 
 			//
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyPlainMaterial,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -44,7 +44,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaCorruptionItem,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -145,7 +145,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaCrimsonItem,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -248,7 +248,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaAlchemyHerb,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -267,7 +267,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaAlchemyFish,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -293,7 +293,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaAlchemyMisc,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

@@ -74,10 +74,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemEquipmentGroups3( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemEquipmentGroups3( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Equipment Tiers
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyOreBarEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, ItemGroupIDs.AnyOreBar },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -91,7 +91,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Tiki Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -104,7 +104,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Cactus Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -119,7 +119,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Plain Wood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -133,7 +133,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Boreal Wood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -147,7 +147,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Palm Wood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -161,7 +161,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Rich Mahogany Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -175,7 +175,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ebonwood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -189,7 +189,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Shadewood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -203,7 +203,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Pearlwood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -217,7 +217,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Spooky Wood Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -232,7 +232,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Tin Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -246,7 +246,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Copper Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -262,7 +262,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Iron Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -276,7 +276,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Lead Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -291,7 +291,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Silver Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -305,7 +305,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Tungsten Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -320,7 +320,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Gold Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -334,7 +334,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Platinum Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -349,7 +349,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Meteor Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -363,7 +363,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Demonite Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -377,7 +377,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Crimtane Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -391,7 +391,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Jungle Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -405,7 +405,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Bee Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -419,7 +419,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Bone Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -433,7 +433,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Hellstone Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -448,7 +448,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Cobalt Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -462,7 +462,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Palladium Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -476,7 +476,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Mythril Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -490,7 +490,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Orichalcum Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -504,7 +504,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Adamantite Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -518,7 +518,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Titanium Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -533,7 +533,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Frost Core Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -547,7 +547,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Forbidden Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -561,7 +561,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Hallow Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -575,7 +575,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Chlorophyte Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -589,7 +589,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Shroomite Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -603,7 +603,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Spectre Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -617,7 +617,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Shell Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -635,7 +635,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Nebula Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -649,7 +649,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Vortex Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -663,7 +663,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Solar Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -677,7 +677,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Stardust Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -691,7 +691,7 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Luminite Ore Equipment",
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

@@ -23,24 +23,24 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineNPCGroups1( IList<EntityGroupMatcherDefinition<NPC>> defs ) {
+		internal static void DefineNPCGroups1( IList<EntityGroupBuilderDefinition<NPC>> defs ) {
 			// General
 
-			defs.Add( new EntityGroupMatcherDefinition<NPC>(
+			defs.Add( new EntityGroupBuilderDefinition<NPC>(
 				grpName: NPCGroupIDs.AnyFriendlyNPC,
 				grpDeps: null,
 				matcher: new NPCGroupMatcher( ( npc, grp ) => {
 					return npc.friendly;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<NPC>(
+			defs.Add( new EntityGroupBuilderDefinition<NPC>(
 				grpName: NPCGroupIDs.AnyHostileNPC,
 				grpDeps: null,
 				matcher: new NPCGroupMatcher( ( npc, grp ) => {
 					return !npc.friendly;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<NPC>(
+			defs.Add( new EntityGroupBuilderDefinition<NPC>(
 				grpName: NPCGroupIDs.AnyTownNPC,
 				grpDeps: null,
 				matcher: new NPCGroupMatcher( ( npc, grp ) => {
@@ -50,7 +50,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Monsters
 
-			defs.Add( new EntityGroupMatcherDefinition<NPC>(
+			defs.Add( new EntityGroupBuilderDefinition<NPC>(
 				grpName: NPCGroupIDs.AnyBoss,
 				grpDeps: null,
 				matcher: new NPCGroupMatcher( ( npc, grp ) => {
@@ -59,7 +59,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<NPC>(
+			defs.Add( new EntityGroupBuilderDefinition<NPC>(
 				grpName: NPCGroupIDs.AnySlime,
 				grpDeps: null,
 				matcher: new NPCGroupMatcher( ( npc, grp ) => {

@@ -58,9 +58,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemPlaceablesGroups2( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemPlaceablesGroups2( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Materials
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWood,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -79,7 +79,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyOre,
 				grpDeps: new string[] { ItemGroupIDs.AnyTile },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -97,7 +97,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return true;*/
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyOreBar,
 				grpDeps: new string[] { ItemGroupIDs.AnyTile },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -114,7 +114,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return true;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaGem,
 				grpDeps: new string[] { ItemGroupIDs.AnyTile },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -138,7 +138,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Stations
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWorkbench,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -146,7 +146,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAnvil,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -154,7 +154,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						|| item.createTile == TileID.MythrilAnvil;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyForge,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -162,14 +162,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						|| item.createTile == TileID.Furnaces;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyTable,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.createTile == TileID.Tables;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAlchemyStation,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -177,7 +177,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						|| item.createTile == TileID.AlchemyTable;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyHardmodeCraftingStation,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -195,7 +195,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaThemedCraftingStation,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -215,7 +215,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyMiscCraftingStation,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -236,7 +236,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Chests
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyChest,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -246,7 +246,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Wire
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWireComponent,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -254,14 +254,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.mech;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyTrapChest,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.createTile == TileID.FakeContainers;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaWireTrap,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -287,7 +287,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaWireSwitch,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -326,7 +326,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Lights
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyLight,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -359,7 +359,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyCandle,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -373,14 +373,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWallTorch,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.createTile == TileID.Torches;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyCampfire,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -391,7 +391,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Misc
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyStatue,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

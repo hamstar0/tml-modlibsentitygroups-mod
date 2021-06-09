@@ -36,31 +36,31 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemWeaponGroups1( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemWeaponGroups1( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Weapon Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ranged Weapon",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.ranged;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Weapon",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.magic;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Melee Weapon",
 				grpDeps: null,
 				new ItemGroupMatcher( ( item, grps ) => {
 					return item.melee;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Thrown Weapon",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -70,21 +70,21 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Melee Sub Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Swingable",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.melee && item.useStyle == ItemUseStyleID.SwingThrow;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Thrustable",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.melee && item.useStyle == ItemUseStyleID.HoldingOut;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Flail",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -104,7 +104,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Boomerang",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -122,7 +122,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Yoyo",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -132,7 +132,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Magic Sub Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Staff Or Scepter Or Wand",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -144,7 +144,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						name.Contains( "Wand" );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Rod",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -154,7 +154,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return name.Contains( "Rod" );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Gun",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -173,7 +173,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						name.Contains( "Laser" );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Tome",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -202,7 +202,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Ranged Sub Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ranger Gun",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -212,7 +212,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						item.useAmmo == AmmoID.Coin;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ranger Bow",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -221,7 +221,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						item.useAmmo == AmmoID.Stake;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ranger Launcher",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -235,14 +235,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Summon Sub Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Minion Summon Item",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.summon && !item.sentry;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Sentry Summon Item",
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

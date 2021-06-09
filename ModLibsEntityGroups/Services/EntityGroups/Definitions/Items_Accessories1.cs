@@ -33,10 +33,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemAccessoriesGroups1( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemAccessoriesGroups1( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Accessory Classes
 			
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWingAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -44,7 +44,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.wingSlot > 0;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaMovementAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -102,7 +102,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaCombatAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -179,7 +179,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaYoyoAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -214,7 +214,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaHealthOrManaAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -236,7 +236,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaConstructionAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -255,7 +255,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaInformationAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -291,7 +291,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaFishingAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -306,7 +306,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaMusicBoxAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -358,7 +358,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return false;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaExpertAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

@@ -14,19 +14,19 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// </summary>
 	public partial class EntityGroups {
 		private bool ComputeGroups<T>(
-					IList<EntityGroupMatcherDefinition<T>> matchers,
+					IList<EntityGroupBuilderDefinition<T>> groupBuilders,
 					IDictionary<string, IReadOnlySet<int>> groups,
 					IDictionary<int, IReadOnlySet<string>> groupsPerEnt )
 					where T : Entity {
 			IDictionary<int, ISet<string>> rawGroupsPerEnt;
 
 			this.GetComputedGroups(
-				matchers: ref matchers,
+				groupBuilders: ref groupBuilders,
 				groups: ref groups,
 				groupsPerEnt: out rawGroupsPerEnt
 			);
 
-			foreach( EntityGroupMatcherDefinition<T> def in matchers ) {
+			foreach( EntityGroupBuilderDefinition<T> def in groupBuilders ) {
 				if( !groups.ContainsKey( def.GroupName ) ) {
 					LogLibraries.Log( "!Entity group " + def.GroupName + " not loaded." );
 				}
@@ -54,23 +54,21 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 
 
 		private void GetComputedGroups<T>(
-					ref IList<EntityGroupMatcherDefinition<T>> matchers,
+					ref IList<EntityGroupBuilderDefinition<T>> groupBuilders,
 					ref IDictionary<string, IReadOnlySet<int>> groups,
 					out IDictionary<int, ISet<string>> groupsPerEnt )
 					where T : Entity {
 			IDictionary<int, ISet<string>> myGroupsPerEnt = new Dictionary<int, ISet<string>>();
-			IDictionary<EntityGroupMatcherDefinition<T>, int> reQueuedCounts = new Dictionary<EntityGroupMatcherDefinition<T>, int>();
+			IDictionary<EntityGroupBuilderDefinition<T>, int> reQueuedCounts = new Dictionary<EntityGroupBuilderDefinition<T>, int>();
 			IList<T> entityPool = this.GetPool<T>();
 
-			int count = matchers.Count;
+			int count = groupBuilders.Count;
 			
 			for( int i=0; i<count; i++ ) {
-				EntityGroupMatcherDefinition<T> matcher = matchers[i];
-
-				this.ComputeGroup(
-					matcher: matcher,
+				this.ComputeGroupAndRunBuilderIf(
+					groupBuilder: groupBuilders[i],
 					entityPool: entityPool,
-					matchers: ref matchers,
+					allGroupBuilders: ref groupBuilders,
 					reQueuedCounts: ref reQueuedCounts,
 					groups: ref groups,
 					groupsPerEnt: ref myGroupsPerEnt

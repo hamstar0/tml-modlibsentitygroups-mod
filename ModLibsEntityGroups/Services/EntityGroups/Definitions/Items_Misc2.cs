@@ -16,8 +16,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemMiscGroups2( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemMiscGroups2( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyFoodIngredient,
 				grpDeps: new string[] { ItemGroupIDs.AnyFood },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

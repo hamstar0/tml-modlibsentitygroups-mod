@@ -40,8 +40,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemEquipmentGroups4( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemEquipmentGroups4( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWoodEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, "Any Wood" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -55,7 +55,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyCopperOrTinEquipment,
 				grpDeps: new string[] { "Any Copper Equipment", "Any Tin Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -63,7 +63,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 							grps["Any Tin Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyIronOrLeadEquipment,
 				grpDeps: new string[] { "Any Iron Equipment", "Any Lead Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -71,7 +71,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 							grps["Any Lead Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnySilverOrTungstenEquipment,
 				grpDeps: new string[] { "Any Silver Equipment", "Any Tungsten Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -79,7 +79,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 							grps["Any Tungsten Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyGoldOrPlatinumEquipment,
 				grpDeps: new string[] { "Any Gold Equipment", "Any Platinum Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -87,7 +87,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Platinum Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyDemoniteOrCrimtaneEquipment,
 				grpDeps: new string[] { "Any Demonite Equipment", "Any Crimtane Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -95,7 +95,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Crimtane Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyMeteorOrJungleOrBoneOrBeeEquipment,
 				grpDeps: new string[] { "Any Meteor Equipment", "Any Jungle Equipment", "Any Bone Equipment", "Any Bee Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -105,7 +105,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Bee Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyCobaltOrPalladiumEquipment,
 				grpDeps: new string[] { "Any Cobalt Equipment", "Any Palladium Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -113,7 +113,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Palladium Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyMythrilOrOrichalcumEquipment,
 				grpDeps: new string[] { "Any Mythril Equipment", "Any Orichalcum Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -121,7 +121,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Orichalcum Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAdamantiteOrTitaniumEquipment,
 				grpDeps: new string[] { "Any Adamantite Equipment", "Any Titanium Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -129,7 +129,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Titanium Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyFrostCoreOrForbiddenEquipment,
 				grpDeps: new string[] { "Any Frost Core Equipment", "Any Forbidden Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -137,7 +137,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Forbidden Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyChlorophyteOrShroomiteOrSpectreEquipment,
 				grpDeps: new string[] { "Any Chlorophyte Equipment", "Any Shroomite Equipment", "Any Spectre Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -146,7 +146,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						grps["Any Spectre Equipment"].Contains( item.type );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyCelestialEquipment,
 				grpDeps: new string[] {
 					"Any Nebula Equipment",

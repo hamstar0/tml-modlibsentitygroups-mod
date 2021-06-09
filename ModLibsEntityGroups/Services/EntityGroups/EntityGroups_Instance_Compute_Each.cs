@@ -13,41 +13,41 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// or projectiles. Must be enabled on mod load to be used (note: collections may require memory).
 	/// </summary>
 	public partial class EntityGroups {
-		private bool ComputeGroup<T>(
-					EntityGroupMatcherDefinition<T> matcher,
+		private bool ComputeGroupAndRunBuilderIf<T>(
+					EntityGroupBuilderDefinition<T> groupBuilder,
 					IList<T> entityPool,
-					ref IList<EntityGroupMatcherDefinition<T>> matchers,
-					ref IDictionary<EntityGroupMatcherDefinition<T>, int> reQueuedCounts,
+					ref IList<EntityGroupBuilderDefinition<T>> allGroupBuilders,
+					ref IDictionary<EntityGroupBuilderDefinition<T>, int> reQueuedCounts,
 					ref IDictionary<string, IReadOnlySet<int>> groups,
 					ref IDictionary<int, ISet<string>> groupsPerEnt )
 					where T : Entity {
 			ISet<int> grp;
 
-			if( !this.ComputeGroupMatcher(matcher, entityPool, out grp ) ) {    //matchers,
-				matchers.Add( matcher );
+			if( !this.ComputeGroupBuilder(groupBuilder, entityPool, out grp ) ) {    //matchers,
+				allGroupBuilders.Add( groupBuilder );
 
-				reQueuedCounts.AddOrSet( matcher, 1 );
+				reQueuedCounts.AddOrSet( groupBuilder, 1 );
 
-				if( reQueuedCounts[matcher] > 100 ) {
-					LogLibraries.Warn( "Could not find all dependencies for " + matcher.GroupName );
+				if( reQueuedCounts[groupBuilder] > 100 ) {
+					LogLibraries.Warn( "Could not find all dependencies for " + groupBuilder.GroupName );
 					return false;
 				}
 
 				return true;
 			}
 
-			groups[ matcher.GroupName ] = new ReadOnlySet<int>( grp );
+			groups[ groupBuilder.GroupName ] = new ReadOnlySet<int>( grp );
 
 			foreach( int grpIdx in grp ) {
-				groupsPerEnt.Set2D( grpIdx, matcher.GroupName );
+				groupsPerEnt.Set2D( grpIdx, groupBuilder.GroupName );
 			}
 
 			return true;
 		}
 
 
-		private bool ComputeGroupMatcher<T>(
-					EntityGroupMatcherDefinition<T> matcher,
+		private bool ComputeGroupBuilder<T>(
+					EntityGroupBuilderDefinition<T> builder,
 					IList<T> entityPool,
 					//IList<EntityGroupMatcherDefinition<T>> matchers,
 					out ISet<int> entityIdsOfGroup )
@@ -56,8 +56,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			EntityGroupDependencies deps;
 
 			bool groupsFound = this.GetGroupsAsDependencies<T>(
-				matcher.GroupName,
-				matcher.GroupDependencies,
+				builder.GroupName,
+				builder.GroupDependencies,
 				out deps
 			);
 			if( !groupsFound ) {
@@ -70,16 +70,16 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 				}
 
 				try {
-					if( matcher.Matcher.MatcherFunc(entityPool[i], deps) ) {
+					if( builder.Builder.MatcherFunc(entityPool[i], deps) ) {
 						entityIdsOfGroup.Add( i );
 					}
 				} catch( Exception ) {
-					LogLibraries.Alert( "Compute fail for '"+matcher.GroupName+"' with ent ("+i+") "+(entityPool[i] == null ? "null" : entityPool[i].ToString()) );
+					LogLibraries.Alert( "Compute fail for '"+builder.GroupName+"' with ent ("+i+") "+(entityPool[i] == null ? "null" : entityPool[i].ToString()) );
 				}
 			}
 
 			if( entityIdsOfGroup.Count == 0 ) {
-				LogLibraries.Info( "!Group "+matcher.GroupName+" has no entries." );
+				LogLibraries.Info( "!Group "+builder.GroupName+" has no entries." );
 			}
 			
 			return true;

@@ -20,22 +20,22 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemPlaceablesGroups1( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemPlaceablesGroups1( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyPlaceable,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.createTile != -1 || item.createWall != -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyTile,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.createTile != -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWall,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

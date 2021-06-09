@@ -17,7 +17,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// Wraps a function for matching entities for a given group.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public class EntityGroupMatcher<T> where T : Entity {
+	public class EntityGroupBuilder<T> where T : Entity {
 		/// <summary>
 		/// Delegate for matching entity group entities. Receives an entity and the group's dependencies as parameters.
 		/// Returns `true` if a match is found.
@@ -25,10 +25,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		public Func<T, EntityGroupDependencies, bool> MatcherFunc;
 	}
 
-	/// <summary>
-	/// An `EntityGroupMatcher` specifically for `Item`s.
-	/// </summary>
-	public class ItemGroupMatcher : EntityGroupMatcher<Item> {
+	/// <summary></summary>
+	public class ItemGroupMatcher : EntityGroupBuilder<Item> {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public ItemGroupMatcher( Func<Item, EntityGroupDependencies, bool> matcherFun ) {
@@ -36,10 +34,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 	}
 
-	/// <summary>
-	/// An `EntityGroupMatcher` specifically for `NPC`s.
-	/// </summary>
-	public class NPCGroupMatcher : EntityGroupMatcher<NPC> {
+	/// <summary></summary>
+	public class NPCGroupMatcher : EntityGroupBuilder<NPC> {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public NPCGroupMatcher( Func<NPC, EntityGroupDependencies, bool> matcherFun ) {
@@ -47,8 +43,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 	}
 
-	/// An `EntityGroupMatcher` specifically for `Projectile`s.
-	public class ProjectileGroupMatcher : EntityGroupMatcher<Projectile> {
+	/// <summary></summary>
+	public class ProjectileGroupMatcher : EntityGroupBuilder<Projectile> {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public ProjectileGroupMatcher( Func<Projectile, EntityGroupDependencies, bool> matcherFun ) {
@@ -59,15 +55,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 
 
 
-	class EntityGroupMatcherDefinition<T> where T : Entity {
+	class EntityGroupBuilderDefinition<T> where T : Entity {
 		public string GroupName;
 		public string[] GroupDependencies;
-		public EntityGroupMatcher<T> Matcher;
+		public EntityGroupBuilder<T> Builder;
 
-		public EntityGroupMatcherDefinition( string grpName, string[] grpDeps, EntityGroupMatcher<T> matcher ) {
+		public EntityGroupBuilderDefinition( string grpName, string[] grpDeps, EntityGroupBuilder<T> matcher ) {
 			this.GroupName = grpName;
 			this.GroupDependencies = grpDeps;
-			this.Matcher = matcher;
+			this.Builder = matcher;
 		}
 	}
 }

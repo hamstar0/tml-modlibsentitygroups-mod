@@ -25,9 +25,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		private IDictionary<int, IReadOnlySet<string>> GroupsPerNPC = new Dictionary<int, IReadOnlySet<string>>();
 		private IDictionary<int, IReadOnlySet<string>> GroupsPerProj = new Dictionary<int, IReadOnlySet<string>>();
 
-		private IList<EntityGroupMatcherDefinition<Item>> CustomItemMatchers = new List<EntityGroupMatcherDefinition<Item>>();
-		private IList<EntityGroupMatcherDefinition<NPC>> CustomNPCMatchers = new List<EntityGroupMatcherDefinition<NPC>>();
-		private IList<EntityGroupMatcherDefinition<Projectile>> CustomProjMatchers = new List<EntityGroupMatcherDefinition<Projectile>>();
+		private IList<EntityGroupBuilderDefinition<Item>> CustomItemGrpBuilders = new List<EntityGroupBuilderDefinition<Item>>();
+		private IList<EntityGroupBuilderDefinition<NPC>> CustomNPCGrpBuilders = new List<EntityGroupBuilderDefinition<NPC>>();
+		private IList<EntityGroupBuilderDefinition<Projectile>> CustomProjGrpBuilders = new List<EntityGroupBuilderDefinition<Projectile>>();
 
 		private IList<Item> ItemPool = null;
 		private IList<NPC> NPCPool = null;
@@ -66,17 +66,17 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		private void InitializeDefinitions() {
 			this._InitCheck = 0;
 
-			IList<EntityGroupMatcherDefinition<Item>> itemMatchers;
-			IList<EntityGroupMatcherDefinition<NPC>> npcMatchers;
-			IList<EntityGroupMatcherDefinition<Projectile>> projMatchers;
+			IList<EntityGroupBuilderDefinition<Item>> itemMatchers;
+			IList<EntityGroupBuilderDefinition<NPC>> npcMatchers;
+			IList<EntityGroupBuilderDefinition<Projectile>> projMatchers;
 
 			try {
 				itemMatchers = EntityGroups.DefineItemGroupDefinitions();
-				this._InitCheck++;
+				 this._InitCheck++;
 				npcMatchers = EntityGroups.DefineNPCGroupDefinitions();
-				this._InitCheck++;
+				 this._InitCheck++;
 				projMatchers = EntityGroups.DefineProjectileGroupDefinitions();
-				this._InitCheck++;
+				 this._InitCheck++;
 			} catch( Exception e ) {
 				LogLibraries.Warn( "Initialization failed 1 (at #" + this._InitCheck + "): " + e.ToString() );
 				return;
@@ -85,30 +85,30 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			//
 
 			this.ComputeGroups<Item>( itemMatchers, this.ItemGroups, this.GroupsPerItem );
-			this._InitCheck++;
+			 this._InitCheck++;
 
 			this.ComputeGroups<NPC>( npcMatchers, this.NPCGroups, this.GroupsPerNPC );
-			this._InitCheck++;
+			 this._InitCheck++;
 
 			this.ComputeGroups<Projectile>( projMatchers, this.ProjGroups, this.GroupsPerProj );
-			this._InitCheck++;
+			 this._InitCheck++;
 
 			//
 
-			this.ComputeGroups<Item>( this.CustomItemMatchers, this.ItemGroups, this.GroupsPerItem );
-			this._InitCheck++;
+			this.ComputeGroups<Item>( this.CustomItemGrpBuilders, this.ItemGroups, this.GroupsPerItem );
+			 this._InitCheck++;
 
-			this.ComputeGroups<NPC>( this.CustomNPCMatchers, this.NPCGroups, this.GroupsPerNPC );
-			this._InitCheck++;
+			this.ComputeGroups<NPC>( this.CustomNPCGrpBuilders, this.NPCGroups, this.GroupsPerNPC );
+			 this._InitCheck++;
 
-			this.ComputeGroups<Projectile>( this.CustomProjMatchers, this.ProjGroups, this.GroupsPerProj );
-			this._InitCheck++;
+			this.ComputeGroups<Projectile>( this.CustomProjGrpBuilders, this.ProjGroups, this.GroupsPerProj );
+			 this._InitCheck++;
 
 			//
 
-			this.CustomItemMatchers = null;
-			this.CustomNPCMatchers = null;
-			this.CustomProjMatchers = null;
+			this.CustomItemGrpBuilders = null;
+			this.CustomNPCGrpBuilders = null;
+			this.CustomProjGrpBuilders = null;
 			this.ItemPool = null;
 			this.NPCPool = null;
 			this.ProjPool = null;

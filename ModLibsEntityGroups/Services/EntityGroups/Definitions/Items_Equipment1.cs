@@ -45,29 +45,29 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemEquipmentGroups1( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemEquipmentGroups1( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyWeapon,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.damage > 0;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyTool,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return ItemAttributeLibraries.IsTool( item );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyFishingPole,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.fishingPole > 0;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanillaExplosive,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -101,56 +101,56 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.accessory && !item.vanity;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyArmor,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return ItemAttributeLibraries.IsArmor( item );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyGarment,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.headSlot != -1 || item.bodySlot != -1 || item.legSlot != -1;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyHealPotion,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.potion;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyPotion,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.buffType > 0;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAmmo,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.ammo > 0 && !item.notAmmo;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyAmmoAmmo,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.ammo > 0 && !item.notAmmo;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyNotAmmo,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -160,14 +160,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 			// Vanity Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanity,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return item.vanity;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanityAccessory,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -175,7 +175,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					return item.accessory;
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyVanityGarment,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {

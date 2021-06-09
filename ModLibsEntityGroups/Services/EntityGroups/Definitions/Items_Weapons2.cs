@@ -15,10 +15,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemWeaponGroups2( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+		internal static void DefineItemWeaponGroups2( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Misc Sub Classes
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Ranger Misc",
 				grpDeps: new string[] { "Any Ranger Gun", "Any Ranger Bow", "Any Ranger Launcher" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
@@ -30,7 +30,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: "Any Magic Misc",
 				grpDeps: new string[] {
 					"Any Magic Staff Or Scepter Or Wand",

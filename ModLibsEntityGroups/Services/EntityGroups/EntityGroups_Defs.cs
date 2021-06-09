@@ -11,8 +11,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// or projectiles. Must be enabled on mod load to be used (note: collections may require memory).
 	/// </summary>
 	public partial class EntityGroups {
-		private static IList<EntityGroupMatcherDefinition<Item>> DefineItemGroupDefinitions() {
-			var matchers = new List<EntityGroupMatcherDefinition<Item>>();
+		private static IList<EntityGroupBuilderDefinition<Item>> DefineItemGroupDefinitions() {
+			var matchers = new List<EntityGroupBuilderDefinition<Item>>();
 
 			EntityGroupDefs.DefineItemEquipmentGroups1( matchers );
 			EntityGroupDefs.DefineItemAccessoriesGroups1( matchers );
@@ -44,8 +44,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 
 
-		private static IList<EntityGroupMatcherDefinition<NPC>> DefineNPCGroupDefinitions() {
-			var matchers = new List<EntityGroupMatcherDefinition<NPC>>();
+		private static IList<EntityGroupBuilderDefinition<NPC>> DefineNPCGroupDefinitions() {
+			var matchers = new List<EntityGroupBuilderDefinition<NPC>>();
 
 			EntityGroupDefs.DefineNPCGroups1( matchers );
 
@@ -53,8 +53,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 
 
-		private static IList<EntityGroupMatcherDefinition<Projectile>> DefineProjectileGroupDefinitions() {
-			var matchers = new List<EntityGroupMatcherDefinition<Projectile>>();
+		private static IList<EntityGroupBuilderDefinition<Projectile>> DefineProjectileGroupDefinitions() {
+			var matchers = new List<EntityGroupBuilderDefinition<Projectile>>();
 
 			EntityGroupDefs.DefineProjectileGroups1( matchers );
 

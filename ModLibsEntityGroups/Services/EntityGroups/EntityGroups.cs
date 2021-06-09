@@ -35,10 +35,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <param name="matcher">Function to use to match items for this group.</param>
 		public static void AddCustomItemGroup( string groupName, string[] groupDependencies, ItemGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( entGrps.CustomItemMatchers == null ) { throw new ModLibsException( "Mods loaded; cannot add new groups." ); }
+			if( entGrps.CustomItemGrpBuilders == null ) { throw new ModLibsException( "Mods loaded; cannot add new groups." ); }
 
-			var entry = new EntityGroupMatcherDefinition<Item>( groupName, groupDependencies, matcher );
-			entGrps.CustomItemMatchers.Add( entry );
+			var entry = new EntityGroupBuilderDefinition<Item>( groupName, groupDependencies, matcher );
+			entGrps.CustomItemGrpBuilders.Add( entry );
 		}
 
 		/// <summary>
@@ -52,10 +52,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <param name="matcher">Function to use to match NPCs for this group.</param>
 		public static void AddCustomNPCGroup( string groupName, string[] groupDependencies, NPCGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( entGrps.CustomNPCMatchers == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
+			if( entGrps.CustomNPCGrpBuilders == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
 
-			var entry = new EntityGroupMatcherDefinition<NPC>( groupName, groupDependencies, matcher );
-			entGrps.CustomNPCMatchers.Add( entry );
+			var entry = new EntityGroupBuilderDefinition<NPC>( groupName, groupDependencies, matcher );
+			entGrps.CustomNPCGrpBuilders.Add( entry );
 		}
 
 		/// <summary>
@@ -70,10 +70,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		public static void AddCustomProjectileGroup( string groupName, string[] groupDependencies,
 					ProjectileGroupMatcher matcher ) {
 			var entGrps = ModContent.GetInstance<EntityGroups>();
-			if( entGrps.CustomProjMatchers == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
+			if( entGrps.CustomProjGrpBuilders == null ) { throw new Exception( "Mods loaded; cannot add new groups." ); }
 
-			var entry = new EntityGroupMatcherDefinition<Projectile>( groupName, groupDependencies, matcher );
-			entGrps.CustomProjMatchers.Add( entry );
+			var entry = new EntityGroupBuilderDefinition<Projectile>( groupName, groupDependencies, matcher );
+			entGrps.CustomProjGrpBuilders.Add( entry );
 		}
 
 

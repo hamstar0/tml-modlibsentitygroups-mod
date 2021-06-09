@@ -17,8 +17,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 
 	partial class EntityGroupDefs {
-		internal static void DefineItemEquipmentGroups2( IList<EntityGroupMatcherDefinition<Item>> defs ) {
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+		internal static void DefineItemEquipmentGroups2( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyEquipment,
 				grpDeps: new string[] {
 					ItemGroupIDs.AnyWeapon,
@@ -33,7 +33,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						|| ItemAttributeLibraries.IsGrapple( item );
 				} )
 			) );
-			defs.Add( new EntityGroupMatcherDefinition<Item>(
+			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyHeavyArmor,
 				grpDeps: new string[] { ItemGroupIDs.AnyArmor },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
