@@ -28,6 +28,12 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 	partial class EntityGroupDefs {
 		internal static void DefineItemMiscGroups3( IList<EntityGroupMatcherDefinition<Item>> defs ) {
+			IDictionary<int, (int, int)> GetMinIngreds( int itemType ) {
+				return new Dictionary<int, (int, int)> { { itemType, (1, 1000) } };
+			}
+
+			//
+
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
 				grpName: ItemGroupIDs.AnyPlainMaterial,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
@@ -97,40 +103,40 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.VilePowder, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.VilePowder) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.DemoniteOre, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteOre) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.DemoniteBar, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteBar) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.ShadowScale, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.ShadowScale) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CursedFlames, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CursedFlames) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.Ebonwood, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Ebonwood) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.PurpleIceBlock, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.PurpleIceBlock) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.EbonstoneBlock, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.EbonstoneBlock) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.EbonstoneBrick, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.EbonstoneBrick) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.DemoniteBrick, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteBrick) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CorruptSeeds, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CorruptSeeds) ) ) {
 							return true;
 						}
 					}
@@ -197,43 +203,43 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.ViciousPowder, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.ViciousPowder) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.Vertebrae, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Vertebrae) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CrimtaneOre, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneOre) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CrimtaneBar, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneBar) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.Ichor, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Ichor) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.TissueSample, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.TissueSample) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.Shadewood, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Shadewood) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.RedIceBlock, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.RedIceBlock) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CrimstoneBlock, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimstoneBlock) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CrimtaneBrick, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneBrick) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.FleshBlock, 1} } ) ) {
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.FleshBlock) ) ) {
 							return true;
 						}
-
-						if( RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ { ItemID.CrimsonSeeds, 1} } ) ) {
+						
+						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimsonSeeds) ) ) {
 							return true;
 						}
 					}

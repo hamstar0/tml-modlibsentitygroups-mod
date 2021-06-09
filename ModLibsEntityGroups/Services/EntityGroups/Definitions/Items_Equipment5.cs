@@ -72,16 +72,17 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					ItemGroupIDs.AnyCelestialEquipment
 				},
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
-					return grps[ItemGroupIDs.AnyCactusEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyWoodEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyJungleEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyBeeEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyBoneEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyMeteorEquipment].Contains( item.type )
-						|| grps[ItemGroupIDs.AnyCelestialEquipment].Contains( item.type )
-						|| ( grps[ ItemGroupIDs.AnyEquipment ].Contains( item.type )
-							&& !grps[ ItemGroupIDs.AnyOreEquipment ].Contains( item.type ) )
-						|| ItemAttributeLibraries.IsGrapple( item );
+					ISet<int> anyEquip = grps[ItemGroupIDs.AnyEquipment];
+					bool isNotOreEquip = anyEquip.Contains(item.type) && !anyEquip.Contains(item.type);
+
+					return isNotOreEquip || ItemAttributeLibraries.IsGrapple(item);
+						//|| grps[ItemGroupIDs.AnyCactusEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyWoodEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyJungleEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyBeeEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyBoneEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyMeteorEquipment].Contains( item.type )
+						//|| grps[ItemGroupIDs.AnyCelestialEquipment].Contains( item.type )
 				} )
 			) );
 		}

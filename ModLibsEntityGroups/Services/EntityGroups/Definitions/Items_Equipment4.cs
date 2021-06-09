@@ -45,8 +45,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpName: ItemGroupIDs.AnyWoodEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, "Any Wood" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
-					IDictionary<int, int> anyEquipGrp = grps[ItemGroupIDs.AnyEquipment].ToDictionary( id=>id, id=>1 );
-					IDictionary<int, int> anyWoodGrp = grps["Any Wood"].ToDictionary( id => id, id=>1 );
+					IDictionary<int, (int, int)> anyEquipGrp = grps[ItemGroupIDs.AnyEquipment].ToDictionary( id=>id, id=>(1, 1000) );
+					IDictionary<int, (int, int)> anyWoodGrp = grps["Any Wood"].ToDictionary( id => id, id=>(1, 1000) );
 
 					bool isCraftedWithWood = RecipeLibraries.ItemHasIngredients( item.type, anyWoodGrp );
 
@@ -56,7 +56,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Copper Or Tin Equipment",
+				grpName: ItemGroupIDs.AnyCopperOrTinEquipment,
 				grpDeps: new string[] { "Any Copper Equipment", "Any Tin Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return	grps["Any Copper Equipment"].Contains( item.type ) ||
@@ -64,7 +64,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Iron Or Lead Equipment",
+				grpName: ItemGroupIDs.AnyIronOrLeadEquipment,
 				grpDeps: new string[] { "Any Iron Equipment", "Any Lead Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return	grps["Any Iron Equipment"].Contains( item.type ) ||
@@ -72,7 +72,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Silver Or Tungsten Equipment",
+				grpName: ItemGroupIDs.AnySilverOrTungstenEquipment,
 				grpDeps: new string[] { "Any Silver Equipment", "Any Tungsten Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return	grps["Any Silver Equipment"].Contains( item.type ) ||
@@ -80,7 +80,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Gold Or Platinum Equipment",
+				grpName: ItemGroupIDs.AnyGoldOrPlatinumEquipment,
 				grpDeps: new string[] { "Any Gold Equipment", "Any Platinum Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Gold Equipment"].Contains( item.type ) ||
@@ -88,7 +88,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Demonite Or Crimtane Equipment",
+				grpName: ItemGroupIDs.AnyDemoniteOrCrimtaneEquipment,
 				grpDeps: new string[] { "Any Demonite Equipment", "Any Crimtane Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Demonite Equipment"].Contains( item.type ) ||
@@ -96,7 +96,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Meteor Or Jungle Or Bone Or Bee Equipment",
+				grpName: ItemGroupIDs.AnyMeteorOrJungleOrBoneOrBeeEquipment,
 				grpDeps: new string[] { "Any Meteor Equipment", "Any Jungle Equipment", "Any Bone Equipment", "Any Bee Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Meteor Equipment"].Contains( item.type ) ||
@@ -106,7 +106,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Cobalt Or Palladium Equipment",
+				grpName: ItemGroupIDs.AnyCobaltOrPalladiumEquipment,
 				grpDeps: new string[] { "Any Cobalt Equipment", "Any Palladium Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Cobalt Equipment"].Contains( item.type ) ||
@@ -114,7 +114,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Mythril Or Orichalcum Equipment",
+				grpName: ItemGroupIDs.AnyMythrilOrOrichalcumEquipment,
 				grpDeps: new string[] { "Any Mythril Equipment", "Any Orichalcum Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Mythril Equipment"].Contains( item.type ) ||
@@ -122,7 +122,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Adamantite Or Titanium Equipment",
+				grpName: ItemGroupIDs.AnyAdamantiteOrTitaniumEquipment,
 				grpDeps: new string[] { "Any Adamantite Equipment", "Any Titanium Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Adamantite Equipment"].Contains( item.type ) ||
@@ -130,7 +130,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Frost Core Or Forbidden Equipment",
+				grpName: ItemGroupIDs.AnyFrostCoreOrForbiddenEquipment,
 				grpDeps: new string[] { "Any Frost Core Equipment", "Any Forbidden Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Frost Core Equipment"].Contains( item.type ) ||
@@ -138,7 +138,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Chlorophyte Or Shroomite Or Spectre Equipment",
+				grpName: ItemGroupIDs.AnyChlorophyteOrShroomiteOrSpectreEquipment,
 				grpDeps: new string[] { "Any Chlorophyte Equipment", "Any Shroomite Equipment", "Any Spectre Equipment" },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					return grps["Any Chlorophyte Equipment"].Contains( item.type ) ||
@@ -147,7 +147,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				} )
 			) );
 			defs.Add( new EntityGroupMatcherDefinition<Item>(
-				grpName: "Any Celestial Equipment",
+				grpName: ItemGroupIDs.AnyCelestialEquipment,
 				grpDeps: new string[] {
 					"Any Nebula Equipment",
 					"Any Vortex Equipment",

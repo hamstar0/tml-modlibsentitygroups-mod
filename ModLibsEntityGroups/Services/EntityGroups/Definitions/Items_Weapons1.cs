@@ -188,7 +188,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 						return true;
 					}
 
-					bool isCraftedWith = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, int>{ {ItemID.SpellTome, 1} } );
+					bool isCraftedWith = RecipeLibraries.ItemHasIngredients(
+						itemType: item.type,
+						minimumIngredients: new Dictionary<int, (int, int)>{ { ItemID.SpellTome, (1, 1000) } }
+					);
 					if( isCraftedWith ) { return true; }
 
 					string name = ItemNameAttributeLibraries.GetQualifiedName( item );

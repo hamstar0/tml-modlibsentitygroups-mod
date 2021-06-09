@@ -32,8 +32,11 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			return list;
 		}
 
+
 		internal IList<Item> GetItemPool() {
-			if( this.ItemPool != null ) { return this.ItemPool; }
+			if( this.ItemPool != null ) {
+				return this.ItemPool;
+			}
 
 			var list = new Item[ ItemLoader.ItemCount ];
 			list[0] = null;
@@ -52,7 +55,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 
 		internal IList<NPC> GetNPCPool() {
-			if( this.NPCPool != null ) { return this.NPCPool; }
+			if( this.NPCPool != null ) {
+				return this.NPCPool;
+			}
 			
 			var list = new NPC[ NPCLoader.NPCCount ];
 			list[0] = null;
@@ -71,7 +76,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		}
 
 		internal IList<Projectile> GetProjPool() {
-			if( this.ProjPool != null ) { return this.ProjPool; }
+			if( this.ProjPool != null ) {
+				return this.ProjPool;
+			}
 			
 			var list = new Projectile[ ProjectileLoader.ProjectileCount ];
 			list[0] = null;
