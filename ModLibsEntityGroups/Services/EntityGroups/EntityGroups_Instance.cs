@@ -5,7 +5,6 @@ using Terraria.ModLoader;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Loadable;
 using ModLibsCore.Libraries.Debug;
-using ModLibsCore.Services.Timers;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
@@ -52,11 +51,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		void ILoadable.OnModsLoad() { }
 
 		void ILoadable.OnPostModsLoad() {
-			Timers.SetTimer( 1, true, () => {
-				this.InitializePools();
-				this.InitializeDefinitions();
-				return false;
-			} );
+			this.InitializePools();
+			this.InitializeDefinitions();
 		}
 
 		void ILoadable.OnModsUnload() { }
