@@ -70,7 +70,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 				}
 
 				try {
-					if( builder.Builder.MatcherFunc(entityPool[i], deps) ) {
+					if( builder.Builder.BuilderFunc(entityPool[i], deps) ) {
 						entityIdsOfGroup.Add( i );
 					}
 				} catch( Exception ) {

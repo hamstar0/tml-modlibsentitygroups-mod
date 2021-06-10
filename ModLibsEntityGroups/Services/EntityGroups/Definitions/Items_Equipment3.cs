@@ -83,9 +83,14 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
 					ISet<int> oreBarGrp = grps[ItemGroupIDs.AnyEquipment];
-					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, oreBarGrp.ToDictionary(i=>i, i=>(1, 1000)) );
 
+					bool isEquip = equipGrp.Contains( item.type );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						oreBarGrp.ToDictionary(i=>i, i=>(1, 1000))
+					);
+					
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
 				} )
@@ -110,9 +115,13 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Cactus, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Cactus, (1, 1000) }
+						}
+					);
 
 					if( !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -124,10 +133,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Wood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Cactus, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -138,10 +152,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.BorealWood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.BorealWood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -152,10 +171,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.PalmWood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.PalmWood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -166,10 +190,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.RichMahogany, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.RichMahogany, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -180,10 +209,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Ebonwood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Ebonwood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -194,10 +228,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Shadewood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Shadewood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -208,10 +247,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Pearlwood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Pearlwood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -222,10 +266,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.SpookyWood, (2, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.SpookyWood, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -237,10 +286,15 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.TinBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.TinBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -251,11 +305,21 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.CopperBar, (1, 1000) }
-					} );
-LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.CopperBar, (1, 1000) }
+						}
+					);
+//var recipes = Main.recipe.Where( i => !i.createItem.IsAir && i.createItem.type == item.type );
+//var recipeItems = recipes.Select( r => r.requiredItem.Where(i => !i.IsAir) );
+//var recipeItemsNames = recipeItems.Select( r => r.Select(i => i.Name+":"+i.type+" ("+i.stack+")") );
+//var concatRecipeItemsNames = recipeItemsNames.Select( rin => string.Join(",", rin) );
+//LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has
+//	+" recipes: ["+string.Join("], [", concatRecipeItemsNames)+"]" );
 					
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -267,10 +331,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.IronBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.IronBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -281,10 +350,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.LeadBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.LeadBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -296,10 +370,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.SilverBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.SilverBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -310,10 +389,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.TungstenBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.TungstenBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -325,10 +409,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.GoldBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.GoldBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -339,10 +428,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.PlatinumBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.PlatinumBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -354,10 +448,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.MeteoriteBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.MeteoriteBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -368,10 +467,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.DemoniteBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.DemoniteBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -382,10 +486,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.CrimtaneBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.CrimtaneBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -396,10 +505,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.JungleSpores, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.JungleSpores, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -410,10 +524,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.BeeWax, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.BeeWax, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -424,11 +543,16 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.Bone, (1, 1000) }
-					} );
-					
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.Bone, (1, 1000) }
+						}
+					);
+
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
 				} )
@@ -438,10 +562,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.HellstoneBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.HellstoneBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -453,10 +582,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.CobaltBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.CobaltBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -467,10 +601,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.PalladiumBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.PalladiumBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -481,10 +620,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.MythrilBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.MythrilBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -495,10 +639,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.OrichalcumBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.OrichalcumBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -509,10 +658,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.AdamantiteBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.AdamantiteBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -523,10 +677,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.TitaniumBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.TitaniumBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -538,10 +697,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.FrostCore, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.FrostCore, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -552,10 +716,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.AncientBattleArmorMaterial, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.AncientBattleArmorMaterial, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -566,10 +735,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.HallowedBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.HallowedBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -580,10 +754,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.ChlorophyteBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.ChlorophyteBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -594,10 +773,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.ShroomiteBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.ShroomiteBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -608,10 +792,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.SpectreBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.SpectreBar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -622,13 +811,21 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has1 = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.BeetleShell, (1, 1000) }
-					} );
-					bool has2 = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.TurtleShell, (1, 1000) }
-					} );
+
+					bool has1 = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.BeetleShell, (1, 1000) }
+						}
+					);
+					bool has2 = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.TurtleShell, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || (!has1 && !has2) ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -640,10 +837,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.FragmentNebula, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.FragmentNebula, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -654,12 +856,17 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
-					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.FragmentVortex, (1, 1000) }
-					} );
 
-					if( !isEquip || !has ) { return false; }
+					bool isEquip = equipGrp.Contains( item.type );
+
+					bool isCraftedWithVortex = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.FragmentVortex, (1, 1000) }
+						}
+					);
+
+					if( !isEquip || !isCraftedWithVortex ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );
@@ -668,10 +875,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool isCraftedWithSolar = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.FragmentSolar, (1, 1000) }
-					} );
+
+					bool isCraftedWithSolar = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.FragmentSolar, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !isCraftedWithSolar ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -682,10 +894,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool isCraftedWithStardust = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.FragmentStardust, (1, 1000) }
-					} );
+
+					bool isCraftedWithStardust = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.FragmentStardust, (1, 1000) }
+						}
+					);
 
 					if( !isEquip || !isCraftedWithStardust ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
@@ -696,10 +913,15 @@ LogLibraries.Log( item.Name+" equip? "+isEquip+" copper?"+has );
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+
 					bool isEquip = equipGrp.Contains( item.type );
-					bool has = RecipeLibraries.ItemHasIngredients( item.type, new Dictionary<int, (int, int)> {
-						{ItemID.LunarBar, (1, 1000) }
-					} );
+
+					bool has = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						new Dictionary<int, (int, int)> {
+							{ ItemID.LunarBar, (1, 1000) }
+						}
+					);
 
 					if( isEquip || !has ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ModLoader;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Loadable;
 using ModLibsCore.Libraries.Debug;
 using ModLibsCore.Services.Timers;
+
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// <summary>
@@ -12,6 +14,12 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 	/// or projectiles. Must be enabled on mod load to be used (note: collections may require memory).
 	/// </summary>
 	public partial class EntityGroups : ILoadable {
+		public static bool IsLoaded => ModContent.GetInstance<EntityGroups>()._IsLoaded;
+
+
+
+		////////////////
+
 		public event Action OnLoad;
 
 
@@ -32,6 +40,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		private IList<Item> ItemPool = null;
 		private IList<NPC> NPCPool = null;
 		private IList<Projectile> ProjPool = null;
+
+		private bool _IsLoaded = false;
 
 
 
@@ -116,6 +126,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			//
 
 			this.OnLoad?.Invoke();
+
+			this._IsLoaded = true;
 
 			//
 

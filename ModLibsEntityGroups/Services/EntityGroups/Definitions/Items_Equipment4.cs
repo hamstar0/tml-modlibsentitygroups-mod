@@ -48,8 +48,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					IDictionary<int, (int, int)> anyEquipGrp = grps[ItemGroupIDs.AnyEquipment].ToDictionary( id=>id, id=>(1, 1000) );
 					IDictionary<int, (int, int)> anyWoodGrp = grps["Any Wood"].ToDictionary( id => id, id=>(1, 1000) );
 
-					bool isCraftedWithWood = RecipeLibraries.ItemHasIngredients( item.type, anyWoodGrp );
-
+					bool isCraftedWithWood = RecipeLibraries.RecipeExists(
+						new HashSet<int> { item.type },
+						anyWoodGrp
+					);
 
 					if( !anyEquipGrp.ContainsKey(item.type) || !isCraftedWithWood ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;

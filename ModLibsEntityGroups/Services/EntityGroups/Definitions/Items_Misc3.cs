@@ -28,6 +28,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 
 	partial class EntityGroupDefs {
 		internal static void DefineItemMiscGroups3( IList<EntityGroupBuilderDefinition<Item>> defs ) {
+			ISet<int> GetItemSet( int itemType ) {
+				return new HashSet<int> { itemType };
+			}
 			IDictionary<int, (int, int)> GetMinIngreds( int itemType ) {
 				return new Dictionary<int, (int, int)> { { itemType, (1, 1000) } };
 			}
@@ -103,40 +106,40 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.VilePowder) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.VilePowder) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteOre) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteOre) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteBar) ) ) {
-							return true;
-						}
-						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.ShadowScale) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CursedFlames) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteBar) ) ) {
 							return true;
 						}
 						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Ebonwood) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.ShadowScale) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.PurpleIceBlock) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.EbonstoneBlock) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.EbonstoneBrick) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.DemoniteBrick) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CursedFlames) ) ) {
 							return true;
 						}
 						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CorruptSeeds) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Ebonwood) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.PurpleIceBlock) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.EbonstoneBlock) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.EbonstoneBrick) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteBrick) ) ) {
+							return true;
+						}
+						
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CorruptSeeds) ) ) {
 							return true;
 						}
 					}
@@ -203,43 +206,43 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.ViciousPowder) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.ViciousPowder) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Vertebrae) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Vertebrae) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneOre) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneOre) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneBar) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneBar) ) ) {
 							return true;
 						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Ichor) ) ) {
-							return true;
-						}
-						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.TissueSample) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Ichor) ) ) {
 							return true;
 						}
 						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.Shadewood) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.RedIceBlock) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimstoneBlock) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimtaneBrick) ) ) {
-							return true;
-						}
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.FleshBlock) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.TissueSample) ) ) {
 							return true;
 						}
 						
-						if( RecipeLibraries.ItemHasIngredients( item.type, GetMinIngreds(ItemID.CrimsonSeeds) ) ) {
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Shadewood) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.RedIceBlock) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimstoneBlock) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneBrick) ) ) {
+							return true;
+						}
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.FleshBlock) ) ) {
+							return true;
+						}
+						
+						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimsonSeeds) ) ) {
 							return true;
 						}
 					}

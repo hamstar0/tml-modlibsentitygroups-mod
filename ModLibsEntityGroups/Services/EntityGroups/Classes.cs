@@ -1,7 +1,7 @@
-﻿using ModLibsCore.Classes.Errors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Terraria;
+using ModLibsCore.Classes.Errors;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
@@ -22,7 +22,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// Delegate for matching entity group entities. Receives an entity and the group's dependencies as parameters.
 		/// Returns `true` if a match is found.
 		/// </summary>
-		public Func<T, EntityGroupDependencies, bool> MatcherFunc;
+		public Func<T, EntityGroupDependencies, bool> BuilderFunc;
 	}
 
 	/// <summary></summary>
@@ -30,7 +30,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public ItemGroupMatcher( Func<Item, EntityGroupDependencies, bool> matcherFun ) {
-			this.MatcherFunc = matcherFun;
+			this.BuilderFunc = matcherFun;
 		}
 	}
 
@@ -39,7 +39,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public NPCGroupMatcher( Func<NPC, EntityGroupDependencies, bool> matcherFun ) {
-			this.MatcherFunc = matcherFun;
+			this.BuilderFunc = matcherFun;
 		}
 	}
 
@@ -48,7 +48,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 		/// <summary></summary>
 		/// <param name="matcherFun"></param>
 		public ProjectileGroupMatcher( Func<Projectile, EntityGroupDependencies, bool> matcherFun ) {
-			this.MatcherFunc = matcherFun;
+			this.BuilderFunc = matcherFun;
 		}
 	}
 
