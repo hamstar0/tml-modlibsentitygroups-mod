@@ -34,6 +34,13 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 			IDictionary<int, (int, int)> GetMinIngreds( int itemType ) {
 				return new Dictionary<int, (int, int)> { { itemType, (1, 1000) } };
 			}
+			bool RecipeExists( int forItemType, int ingredientItemType ) {
+				return RecipeFinderLibraries.RecipeExists_Cached(
+					createItemTypes: GetItemSet( forItemType ),
+					allIngredients: GetMinIngreds( ingredientItemType ),
+					anyIngredients: null
+				);
+			}
 
 			//
 
@@ -106,40 +113,40 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.VilePowder) ) ) {
+						if( RecipeExists( item.type, ItemID.VilePowder ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteOre) ) ) {
+						if( RecipeExists( item.type, ItemID.DemoniteOre ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteBar) ) ) {
+						if( RecipeExists( item.type, ItemID.DemoniteBar ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.ShadowScale) ) ) {
+
+						if( RecipeExists( item.type, ItemID.ShadowScale ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CursedFlames) ) ) {
+						if( RecipeExists( item.type, ItemID.CursedFlames ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Ebonwood) ) ) {
+
+						if( RecipeExists( item.type, ItemID.Ebonwood ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.PurpleIceBlock) ) ) {
+						if( RecipeExists( item.type, ItemID.PurpleIceBlock ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.EbonstoneBlock) ) ) {
+						if( RecipeExists( item.type, ItemID.EbonstoneBlock ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.EbonstoneBrick) ) ) {
+						if( RecipeExists( item.type, ItemID.EbonstoneBrick ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.DemoniteBrick) ) ) {
+						if( RecipeExists( item.type, ItemID.DemoniteBrick ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CorruptSeeds) ) ) {
+
+						if( RecipeExists( item.type, ItemID.CorruptSeeds ) ) {
 							return true;
 						}
 					}
@@ -206,43 +213,40 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					}
 
 					if( item.type <= ItemID.Count ) {
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.ViciousPowder) ) ) {
+						if( RecipeExists( item.type, ItemID.ViciousPowder ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Vertebrae) ) ) {
+						if( RecipeExists( item.type, ItemID.Vertebrae ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneOre) ) ) {
+						if( RecipeExists( item.type, ItemID.CrimtaneOre ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneBar) ) ) {
+						if( RecipeExists( item.type, ItemID.CrimtaneBar ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Ichor) ) ) {
+						if( RecipeExists( item.type, ItemID.Ichor ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.TissueSample) ) ) {
+						if( RecipeExists( item.type, ItemID.TissueSample ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.Shadewood) ) ) {
+						if( RecipeExists( item.type, ItemID.Shadewood ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.RedIceBlock) ) ) {
+						if( RecipeExists( item.type, ItemID.RedIceBlock ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimstoneBlock) ) ) {
+						if( RecipeExists( item.type, ItemID.CrimstoneBlock ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimtaneBrick) ) ) {
+						if( RecipeExists( item.type, ItemID.CrimtaneBrick ) ) {
 							return true;
 						}
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.FleshBlock) ) ) {
+						if( RecipeExists( item.type, ItemID.FleshBlock ) ) {
 							return true;
 						}
-						
-						if( RecipeLibraries.RecipeExists( GetItemSet(item.type), GetMinIngreds(ItemID.CrimsonSeeds) ) ) {
+						if( RecipeExists( item.type, ItemID.CrimsonSeeds ) ) {
 							return true;
 						}
 					}

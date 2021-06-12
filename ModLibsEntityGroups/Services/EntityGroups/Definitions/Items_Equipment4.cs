@@ -9,7 +9,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 	/// <summary></summary>
 	public partial class ItemGroupIDs {
 		/// <summary></summary>
-		public const string AnyWoodEquipment = "Any Wood Equipment";
+		public const string AnyVanillaWoodEquipment = "Any Vanilla Wood Equipment";
 		/// <summary></summary>
 		public const string AnyCopperOrTinEquipment = "Any Copper Or Tin Equipment";
 		/// <summary></summary>
@@ -42,18 +42,19 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 	partial class EntityGroupDefs {
 		internal static void DefineItemEquipmentGroups4( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: ItemGroupIDs.AnyWoodEquipment,
-				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, "Any Wood" },
+				grpName: ItemGroupIDs.AnyVanillaWoodEquipment,
+				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, ItemGroupIDs.AnyVanillaWood },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
-					IDictionary<int, (int, int)> anyEquipGrp = grps[ItemGroupIDs.AnyEquipment].ToDictionary( id=>id, id=>(1, 1000) );
-					IDictionary<int, (int, int)> anyWoodGrp = grps["Any Wood"].ToDictionary( id => id, id=>(1, 1000) );
-
-					bool isCraftedWithWood = RecipeLibraries.RecipeExists(
-						new HashSet<int> { item.type },
-						anyWoodGrp
+					ISet<int> anyEquipGrp = grps[ItemGroupIDs.AnyEquipment];
+					ISet<int> anyWoodGrp = grps[ItemGroupIDs.AnyVanillaWood];
+					
+					bool isCraftedWithWood = RecipeFinderLibraries.RecipeExists_Cached(
+						createItemTypes: new HashSet<int> { item.type },
+						allIngredients: null,
+						anyIngredients: anyWoodGrp.ToDictionary( id => id, id => (1, 1000) )
 					);
 
-					if( !anyEquipGrp.ContainsKey(item.type) || !isCraftedWithWood ) { return false; }
+					if( !anyEquipGrp.Contains(item.type) || !isCraftedWithWood ) { return false; }
 					return item.createTile == -1 && item.createWall == -1;
 				} )
 			) );

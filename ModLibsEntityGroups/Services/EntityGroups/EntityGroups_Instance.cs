@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using ModLibsCore.Classes.DataStructures;
 using ModLibsCore.Classes.Loadable;
 using ModLibsCore.Libraries.Debug;
+using ModLibsGeneral.Libraries.Recipes;
 
 
 namespace ModLibsEntityGroups.Services.EntityGroups {
@@ -77,6 +78,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups {
 			IList<EntityGroupBuilderDefinition<Projectile>> projMatchers;
 
 			try {
+				RecipeFinderLibraries.ClearCache();
+
 				itemMatchers = EntityGroups.DefineItemGroupDefinitions();
 				 this._InitCheck++;
 				npcMatchers = EntityGroups.DefineNPCGroupDefinitions();

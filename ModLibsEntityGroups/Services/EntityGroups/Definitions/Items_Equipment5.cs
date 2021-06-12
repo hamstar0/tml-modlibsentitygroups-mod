@@ -63,8 +63,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 					ItemGroupIDs.AnyEquipment,
 					ItemGroupIDs.AnyOreEquipment,
 					//
+					ItemGroupIDs.AnyVanillaWoodEquipment,
 					ItemGroupIDs.AnyCactusEquipment,
-					ItemGroupIDs.AnyWoodEquipment,
 					ItemGroupIDs.AnyJungleEquipment,
 					ItemGroupIDs.AnyBeeEquipment,
 					ItemGroupIDs.AnyBoneEquipment,

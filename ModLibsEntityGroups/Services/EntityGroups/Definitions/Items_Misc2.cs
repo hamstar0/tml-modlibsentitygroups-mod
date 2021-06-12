@@ -22,7 +22,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpDeps: new string[] { ItemGroupIDs.AnyFood },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					foreach( int foodId in grps[ItemGroupIDs.AnyFood] ) {
-						IEnumerable<Recipe> recipes = RecipeFinderLibraries.GetRecipesOfItem( foodId );
+						IEnumerable<Recipe> recipes = RecipeFinderLibraries.GetRecipesOfItem_Cached( foodId );
 
 						foreach( Recipe recipe in recipes ) {
 							for( int i = 0; i < recipe.requiredItem.Length; i++ ) {

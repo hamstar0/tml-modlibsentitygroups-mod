@@ -9,7 +9,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 	/// <summary></summary>
 	public partial class ItemGroupIDs {
 		/// <summary></summary>
-		public const string AnyWood = "Any Wood";
+		public const string AnyVanillaWood = "Any Vanilla Wood";
 		/// <summary></summary>
 		public const string AnyOre = "Any Ore";
 		/// <summary></summary>
@@ -61,7 +61,7 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 		internal static void DefineItemPlaceablesGroups2( IList<EntityGroupBuilderDefinition<Item>> defs ) {
 			// Materials
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: ItemGroupIDs.AnyWood,
+				grpName: ItemGroupIDs.AnyVanillaWood,
 				grpDeps: null,
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					switch( item.type ) {
@@ -101,7 +101,9 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				grpName: ItemGroupIDs.AnyOreBar,
 				grpDeps: new string[] { ItemGroupIDs.AnyTile },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
-					if( !grps[ItemGroupIDs.AnyTile].Contains( item.type ) ) { return false; }
+					if( !grps[ItemGroupIDs.AnyTile].Contains( item.type ) ) {
+						return false;
+					}
 					if( item.createTile != TileID.MetalBars ) {
 						if( item.createTile <= -1 ) { return false; }
 						if( !Main.tileSolid[item.createTile] ) { return false; }
