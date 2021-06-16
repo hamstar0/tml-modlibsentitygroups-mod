@@ -134,10 +134,10 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 			) );
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
 				grpName: ItemGroupIDs.AnyFrostCoreOrForbiddenEquipment,
-				grpDeps: new string[] { "Any Frost Core Equipment", "Any Forbidden Equipment" },
+				grpDeps: new string[] { ItemGroupIDs.AnyFrostCoreEquipment, ItemGroupIDs.AnyForbiddenEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
-					return grps["Any Frost Core Equipment"].Contains( item.type ) ||
-						grps["Any Forbidden Equipment"].Contains( item.type );
+					return grps[ItemGroupIDs.AnyFrostCoreEquipment].Contains( item.type ) ||
+						grps[ItemGroupIDs.AnyForbiddenEquipment].Contains( item.type );
 				} )
 			) );
 			defs.Add( new EntityGroupBuilderDefinition<Item>(

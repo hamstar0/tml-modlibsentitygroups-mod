@@ -73,7 +73,8 @@ namespace ModLibsEntityGroups.Services.EntityGroups.Definitions {
 				},
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> anyEquip = grps[ItemGroupIDs.AnyEquipment];
-					bool isNotOreEquip = anyEquip.Contains(item.type) && !anyEquip.Contains(item.type);
+					ISet<int> anyOreEquip = grps[ItemGroupIDs.AnyOreEquipment];
+					bool isNotOreEquip = anyEquip.Contains(item.type) && !anyOreEquip.Contains(item.type);
 
 					return isNotOreEquip || ItemAttributeLibraries.IsGrapple(item);
 						//|| grps[ItemGroupIDs.AnyCactusEquipment].Contains( item.type )

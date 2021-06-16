@@ -134,7 +134,7 @@ LogLibraries.LogOnce( "ITEM "+item.Name+" HAS ORES?: "+has
 			) );
 
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: "Any Cactus Equipment",
+				grpName: ItemGroupIDs.AnyCactusEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment, },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
@@ -382,15 +382,19 @@ LogLibraries.LogOnce( "ITEM "+item.Name+" HAS ORES?: "+has
 			) );
 
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: "Any Frost Core Equipment",
+				grpName: ItemGroupIDs.AnyFrostCoreEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
+//var frostHelmRecipes = Main.recipe.Where( r => r.createItem.type == ItemID.FrostHelmet );
+//LogLibraries.LogOnce( "FROST HELMET RECIPES ["
+//	+frostHelmRecipes.Select( r=>r.requiredItem.Select(i=>i.Name).ToStringJoined(",") ).ToStringJoined("], [")
+//);
 					return EntityGroupDefs.IsEquipOfGroup( item, equipGrp, new HashSet<int> { ItemID.FrostCore } );
 				} )
 			) );
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: "Any Forbidden Equipment",
+				grpName: ItemGroupIDs.AnyForbiddenEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
@@ -398,7 +402,7 @@ LogLibraries.LogOnce( "ITEM "+item.Name+" HAS ORES?: "+has
 				} )
 			) );
 			defs.Add( new EntityGroupBuilderDefinition<Item>(
-				grpName: "Any Hallow Equipment",
+				grpName: ItemGroupIDs.AnyHallowEquipment,
 				grpDeps: new string[] { ItemGroupIDs.AnyEquipment },
 				matcher: new ItemGroupMatcher( ( item, grps ) => {
 					ISet<int> equipGrp = grps[ItemGroupIDs.AnyEquipment];
